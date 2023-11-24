@@ -4,7 +4,8 @@ export const ShoppingCartContext = createContext()
 
 export const ShoppingCartProvider = ({ children }) => {
   // Log in
-  const [userIsLog, setUserIsLog] = useState(false)
+  const userIsLog = localStorage.getItem('isLog')
+  const [userIsLogState, setUserIsLogState] = useState(false)
   // Shopping Cart · Increment quantity
   const [count, setCount] = useState(0)
 
@@ -37,14 +38,12 @@ export const ShoppingCartProvider = ({ children }) => {
   // Get products by category
   const [searchByCategory, setSearchByCategory] = useState(null)
 
-  if (userIsLog) {
-    useEffect(() => {
-      fetch('https://api.escuelajs.co/api/v1/products')
-        .then(response => response.json())
-        .then(data => setItems(data))
-    }, [])
+  useEffect(() => {
+    fetch('https://api.escuelajs.co/api/v1/products')
+      .then(response => response.json())
+      .then(data => setItems(data))
+  }, [userIsLogState, userIsLog])
 
-  }
   const filteredItemsByTitle = (items, searchByTitle) => {
     return items?.filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()))
   }
@@ -81,7 +80,7 @@ export const ShoppingCartProvider = ({ children }) => {
   return (
     <ShoppingCartContext.Provider value={{
       userIsLog,
-      setUserIsLog,
+      setUserIsLogState,
       count,
       setCount,
       openProductDetail,
