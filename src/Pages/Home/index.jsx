@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import Layout from '../../Components/Layout'
+import NotLog from '../../Components/NotLog'
 import Card from '../../Components/Card'
 import ProductDetail from '../../Components/ProductDetail'
 import { ShoppingCartContext } from '../../Context'
@@ -7,6 +8,13 @@ import { ShoppingCartContext } from '../../Context'
 function Home() {
   const context = useContext(ShoppingCartContext)
 
+  if (!context.userIsLog) {
+    return (
+      <Layout>
+        <NotLog />
+      </Layout>
+    )
+  }
   const renderView = () => {
     if (context.filteredItems?.length > 0) {
       return (

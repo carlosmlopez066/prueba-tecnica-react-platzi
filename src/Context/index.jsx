@@ -2,7 +2,9 @@ import { createContext, useState, useEffect } from 'react'
 
 export const ShoppingCartContext = createContext()
 
-export const ShoppingCartProvider = ({children}) => {
+export const ShoppingCartProvider = ({ children }) => {
+  // Log in
+  const [userIsLog, setUserIsLog] = useState(false)
   // Shopping Cart · Increment quantity
   const [count, setCount] = useState(0)
 
@@ -35,12 +37,14 @@ export const ShoppingCartProvider = ({children}) => {
   // Get products by category
   const [searchByCategory, setSearchByCategory] = useState(null)
 
-  useEffect(() => {
-    fetch('https://api.escuelajs.co/api/v1/products')
-      .then(response => response.json())
-      .then(data => setItems(data))
-  }, [])
+  if (userIsLog) {
+    useEffect(() => {
+      fetch('https://api.escuelajs.co/api/v1/products')
+        .then(response => response.json())
+        .then(data => setItems(data))
+    }, [])
 
+  }
   const filteredItemsByTitle = (items, searchByTitle) => {
     return items?.filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()))
   }
@@ -76,6 +80,8 @@ export const ShoppingCartProvider = ({children}) => {
 
   return (
     <ShoppingCartContext.Provider value={{
+      userIsLog,
+      setUserIsLog,
       count,
       setCount,
       openProductDetail,
