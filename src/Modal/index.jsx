@@ -9,9 +9,11 @@ const Modal = () => {
     if (confirmation === 'yes') {
       return (
         context.setOpenModal(false),
+        context.setUserIsLogState(false),
         localStorage.removeItem('isLog')
       )
-    } else if (confirmation === 'no') {
+    }
+    if (confirmation === 'no') {
       return context.setOpenModal(false)
     }
   }
