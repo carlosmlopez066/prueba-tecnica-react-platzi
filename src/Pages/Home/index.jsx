@@ -4,6 +4,7 @@ import NotLog from '../../Components/NotLog'
 import Card from '../../Components/Card'
 import ProductDetail from '../../Components/ProductDetail'
 import { ShoppingCartContext } from '../../Context'
+import Modal from '../../Modal'
 
 function Home() {
   const context = useContext(ShoppingCartContext)
@@ -28,7 +29,6 @@ function Home() {
       )
     }
   }
-
   return (
     <Layout>
       <div className='flex items-center justify-center relative w-80 mb-4'>
@@ -43,6 +43,8 @@ function Home() {
         {renderView()}
       </div>
       <ProductDetail />
+      {context.openModal && (
+        <Modal />)}
     </Layout>
   )
 }

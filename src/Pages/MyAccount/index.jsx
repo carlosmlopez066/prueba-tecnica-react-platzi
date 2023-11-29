@@ -1,8 +1,8 @@
 import { useContext } from 'react'
 import { ShoppingCartContext } from '../../Context'
 import NotLog from '../../Components/NotLog'
-
 import Layout from '../../Components/Layout'
+import Modal from '../../Modal'
 
 function MyAccount() {
   const context = useContext(ShoppingCartContext)
@@ -17,7 +17,10 @@ function MyAccount() {
     return (
       <Layout>
         MyAccount
+        {context.openModal && (
+          <Modal />)}
       </Layout>
+
     )
   }
 }

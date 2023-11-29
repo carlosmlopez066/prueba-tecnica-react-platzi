@@ -4,6 +4,7 @@ import Layout from '../../Components/Layout'
 import NotLog from '../../Components/NotLog'
 import { ShoppingCartContext } from '../../Context'
 import OrdersCard from '../../Components/OrdersCard'
+import Modal from '../../Modal'
 
 function MyOrders() {
   const context = useContext(ShoppingCartContext)
@@ -28,6 +29,8 @@ function MyOrders() {
             </Link>
           ))
         }
+        {context.openModal && (
+          <Modal />)}
       </Layout>
     )
   }

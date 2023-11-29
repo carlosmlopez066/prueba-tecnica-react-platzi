@@ -4,6 +4,7 @@ import { ChevronLeftIcon } from '@heroicons/react/24/solid'
 import { ShoppingCartContext } from '../../Context'
 import Layout from '../../Components/Layout'
 import OrderCard from '../../Components/OrderCard'
+import Modal from '../../Modal'
 
 function MyOrder() {
   const context = useContext(ShoppingCartContext)
@@ -32,6 +33,8 @@ function MyOrder() {
           ))
         }
       </div>
+      {context.openModal && (
+        <Modal />)}
     </Layout>
   )
 }

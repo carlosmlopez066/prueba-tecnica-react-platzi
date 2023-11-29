@@ -38,6 +38,9 @@ export const ShoppingCartProvider = ({ children }) => {
   // Get products by category
   const [searchByCategory, setSearchByCategory] = useState(null)
 
+  //open and set modal
+  const [openModal, setOpenModal] = useState(false)
+
   useEffect(() => {
     fetch('https://api.escuelajs.co/api/v1/products')
       .then(response => response.json())
@@ -101,7 +104,9 @@ export const ShoppingCartProvider = ({ children }) => {
       setSearchByTitle,
       filteredItems,
       searchByCategory,
-      setSearchByCategory
+      setSearchByCategory,
+      openModal,
+      setOpenModal
     }}>
       {children}
     </ShoppingCartContext.Provider>

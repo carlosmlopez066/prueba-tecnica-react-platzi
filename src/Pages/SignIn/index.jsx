@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import Layout from '../../Components/Layout'
 import { ShoppingCartContext } from '../../Context'
+import Modal from '../../Modal'
 import './styles.css'
 
 function SignIn() {
@@ -36,7 +37,10 @@ function SignIn() {
           </NavLink>
         </form>
       </div>
+      {context.openModal && (
+        <Modal />)}
     </Layout>
+
   )
 }
 
