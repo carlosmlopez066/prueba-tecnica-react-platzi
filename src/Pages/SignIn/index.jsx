@@ -12,6 +12,10 @@ function SignIn() {
     localStorage.setItem('isLog', true)
     context.setUserIsLogState(true)
   }
+  const handleInputEmail = (event) => {
+    context.setUserEmail(event)
+    localStorage.setItem('emailUser', event)
+  }
   return (
     <Layout>
       <div className=' SignIn w-full  flex justify-center items-start'>
@@ -21,7 +25,7 @@ function SignIn() {
             <input type='text' alt='name' className='my-3 p-2 h-10 border border-black border-solid rounded-lg ' />
 
             <label alt='email' className='font-semibold text-lg'>Email</label>
-            <input type='email' alt='email' className='my-3 p-2 h-10 border border-black border-solid rounded-lg' />
+            <input type='email' alt='email' className='my-3 p-2 h-10 border border-black border-solid rounded-lg' value={context.userEmail} onChange={(event) => handleInputEmail(event.target.value)} />
 
             <label alt='password' className='font-semibold text-lg'>Password</label>
             <input type='password' alt='password' className='my-3 p-2 h-10 border border-black border-solid rounded-lg' />

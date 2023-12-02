@@ -6,6 +6,9 @@ export const ShoppingCartProvider = ({ children }) => {
   // Log in
   const userIsLog = localStorage.getItem('isLog')
   const [userIsLogState, setUserIsLogState] = useState(false)
+
+  // user Email
+  const [userEmail, setUserEmail] = useState('')
   // Shopping Cart · Increment quantity
   const [count, setCount] = useState(0)
 
@@ -106,7 +109,9 @@ export const ShoppingCartProvider = ({ children }) => {
       searchByCategory,
       setSearchByCategory,
       openModal,
-      setOpenModal
+      setOpenModal,
+      userEmail,
+      setUserEmail
     }}>
       {children}
     </ShoppingCartContext.Provider>

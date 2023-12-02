@@ -10,7 +10,9 @@ const Modal = () => {
       return (
         context.setOpenModal(false),
         context.setUserIsLogState(false),
-        localStorage.removeItem('isLog')
+        context.setUserEmail(''),
+        localStorage.removeItem('isLog'),
+        localStorage.removeItem('emailUser')
       )
     }
     if (confirmation === 'no') {
