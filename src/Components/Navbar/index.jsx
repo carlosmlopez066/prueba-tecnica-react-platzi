@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import { ShoppingBagIcon } from '@heroicons/react/24/solid'
+import { Bars3Icon } from '@heroicons/react/24/solid'
 import { ShoppingCartContext } from '../../Context'
 
 const Navbar = () => {
@@ -8,8 +9,11 @@ const Navbar = () => {
   const activeStyle = 'underline underline-offset-4'
 
   return (
-    <nav className='flex justify-between items-center fixed z-10 top-0 w-full py-5 px-8 text-sm font-light'>
-      <ul className='flex items-center gap-3'>
+    <nav className='flex justify-between items-center fixed z-10 top-0 w-full py-1.5 px-8 text-sm font-light bg-white'>
+      <NavLink to='/'>
+        <span className='hidden font-semibold text-lg max-sm:flex'>Shopi</span>
+      </NavLink>
+      <ul className='flex items-center gap-4 m-3 max-sm:hidden max-md:text-xl'>
         <li className='font-semibold text-lg'>
           <NavLink to='/'>
             Shopi
@@ -76,7 +80,14 @@ const Navbar = () => {
           </NavLink>
         </li>
       </ul>
-      <ul className='flex items-center gap-3'>
+      <NavLink
+        to={context.openMobileMenu ? '/' : 'menu'}
+        onClick={() => context.setOpenMobileMenu(true)}
+      >
+        <Bars3Icon className='h-6 w-6 text-black m-4 hidden max-md:flex' />
+
+      </NavLink>
+      <ul className='flex items-center gap-3 max-md:hidden'>
         <li className='text-black/60'>
           {context.userIsLog ? localStorage.getItem('emailUser') : context.userEmail}
         </li>

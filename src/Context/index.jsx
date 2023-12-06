@@ -44,6 +44,9 @@ export const ShoppingCartProvider = ({ children }) => {
   //open and set modal
   const [openModal, setOpenModal] = useState(false)
 
+  // open and set MobileMenu
+  const [openMobileMenu, setOpenMobileMenu] = useState(false)
+
   useEffect(() => {
     fetch('https://api.escuelajs.co/api/v1/products')
       .then(response => response.json())
@@ -111,7 +114,9 @@ export const ShoppingCartProvider = ({ children }) => {
       openModal,
       setOpenModal,
       userEmail,
-      setUserEmail
+      setUserEmail,
+      openMobileMenu,
+      setOpenMobileMenu
     }}>
       {children}
     </ShoppingCartContext.Provider>
