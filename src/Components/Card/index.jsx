@@ -3,7 +3,6 @@ import { PlusIcon, CheckIcon } from '@heroicons/react/24/solid'
 import { ShoppingCartContext } from '../../Context'
 
 const Card = (data) => {
-  console.log('data:  ', data.data.category.name)
   const context = useContext(ShoppingCartContext)
 
   const showProduct = (productDetail) => {

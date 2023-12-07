@@ -117,7 +117,7 @@ const Menu = () => {
         >
           <span className='cursor-pointer'
           >
-            Log out
+            sign out
           </span>
         </li>
 

@@ -89,7 +89,7 @@ const Navbar = () => {
       </NavLink>
       <ul className='flex items-center gap-3 max-md:hidden'>
         <li className='text-black/60'>
-          {context.userIsLog ? localStorage.getItem('emailUser') : context.userEmail}
+          {localStorage.getItem('isLog') ? localStorage.getItem('emailUser') : context.userEmail}
         </li>
         <li>
           <NavLink
@@ -125,7 +125,7 @@ const Navbar = () => {
         >
           <span className='cursor-pointer'
           >
-            Log out
+            sign out
           </span>
         </li>
 

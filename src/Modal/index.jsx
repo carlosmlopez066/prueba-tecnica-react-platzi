@@ -12,8 +12,7 @@ const Modal = () => {
         context.setOpenModal(false),
         context.setUserIsLogState(false),
         context.setUserEmail(''),
-        localStorage.removeItem('isLog'),
-        localStorage.removeItem('emailUser')
+        localStorage.removeItem('isLog')
       )
     }
     if (confirmation === 'no') {
@@ -24,7 +23,7 @@ const Modal = () => {
   return createPortal(
     <div className='w-full h-screen bg-white bg-opacity-50  z-10 top-0 absolute flex flex-col justify-center items-center'>
       <div className='bg-gray-300 rounded-lg p-10 flex flex-col justify-center items-center shadow-2xl'>
-        <p className='text-slate-900 text-xl font-bold opacity-100'>You want Log Out ?</p>
+        <p className='text-slate-900 text-xl font-bold opacity-100'>You want  Signut ?</p>
         <div className='flex gap-6 mt-5 '>
           <NavLink to='/'>
             <button

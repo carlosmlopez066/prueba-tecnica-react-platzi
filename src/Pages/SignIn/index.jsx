@@ -19,12 +19,12 @@ function SignIn() {
   return (
     <Layout>
       <div className=' SignIn w-full  flex justify-center items-start'>
-        <form className='flex flex-col justify-center items-center w-80'>
+        <form onSubmit={console.log('submit!!!!!!')} className='flex flex-col justify-center items-center w-80'>
           <div className='flex flex-col justify-center items-start '>
             <label alt='name' className='font-semibold text-lg'>Name</label>
             <input type='text' alt='name' className='my-3 p-2 h-10 border border-black border-solid rounded-lg ' />
 
-            <label alt='email' className='font-semibold text-lg'>Email</label>
+            <label alt='email' className='font-semibold text-lg' id='emailUser'>Email</label>
             <input type='email' alt='email' className='my-3 p-2 h-10 border border-black border-solid rounded-lg' value={context.userEmail} onChange={(event) => handleInputEmail(event.target.value)} />
 
             <label alt='password' className='font-semibold text-lg'>Password</label>
@@ -32,7 +32,7 @@ function SignIn() {
           </div>
           <NavLink to={'/'}>
             <button
-              type='button'
+              type='submit'
               className='my-3 text-xl  font-bold border border-none bg-gray-400 rounded-xl p-3 w-48 cursor-pointer hover:bg-gray-700 hover:text-white'
               onClick={() => signUp()}
             >
