@@ -19,14 +19,10 @@ function MyAccount() {
         <h2 className='font-medium text-xl'>MyAccount</h2>
         <ul className='flex flex-col items-center justify-center my-10 '>
           <li className='flex gap-3'>
-            <p className='font-semibold'>Name: </p>
-            <p className='font-light'>carlos</p>
-          </li>
-          <li className='flex gap-3'>
             <p className='font-semibold'>Email: </p>
-            <p className='font-light'>carlos@gmail</p>
+            <p className='font-light'>{localStorage.getItem('emailUser')}</p>
           </li>
-          <img src="" alt="" />
+          <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="userPicture" className='w-5/12 my-7' />
         </ul>
         {context.openModal && (
           <Modal />)}
